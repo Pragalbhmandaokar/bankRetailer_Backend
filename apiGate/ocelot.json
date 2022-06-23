@@ -1,0 +1,73 @@
+{
+    "ReRoutes": [
+        {
+            //account
+            "DownstreamHostAndPorts": [
+                {
+                    "Host": "localhost",
+                    "Port": 44332
+                }
+            ],
+            "DownstreamPathTemplate": "/api/account",
+            "DownstreamScheme": "https",
+            "UpstreamHttpMethod": [ "Get" ],
+            "UpstreamPathTemplate": "/account"
+        },
+        //authentication
+        {
+            "DownstreamHostAndPorts": [
+                {
+                    "Host": "localhost",
+                    "Port": 44306
+                }
+            ],
+            "DownstreamPathTemplate": "/api/Authentication",
+            "DownstreamScheme": "https",
+            "UpstreamHttpMethod": [ "Get" ],
+            "UpstreamPathTemplate": "/allUsers"
+        },
+        //customer
+        {
+            "DownstreamHostAndPorts": [
+                {
+                    "Host": "localhost",
+                    "Port": 44306
+                }
+            ],
+            "DownstreamPathTemplate": "/api/customer",
+            "DownstreamScheme": "https",
+            "UpstreamHttpMethod": [ "Get" ],
+            "UpstreamPathTemplate": "/Allcustomers"
+        },
+        {
+            "DownstreamHostAndPorts": [
+                {
+                    "Host": "localhost",
+                    "Port": 44306
+                }
+            ],
+            "DownstreamPathTemplate": "/api/customer",
+            "DownstreamScheme": "https",
+            "UpstreamHttpMethod": [ "post" ],
+            "UpstreamPathTemplate": "/addCustomer"
+        },
+        //transaction
+        {
+            "DownstreamHostAndPorts": [
+                {
+                    "Host": "localhost",
+                    "Port": 44396
+                }
+            ],
+            "DownstreamPathTemplate": "/api/transaction",
+            "DownstreamScheme": "https",
+            "UpstreamHttpMethod": [ "Get" ],
+            "UpstreamPathTemplate": "/AllTransaction"
+        }
+        //44306
+    ],
+    "GlobalConfiguration": {
+        "RequestIdKey": "OcRequestId",
+        "AdministrationPath": "/administration"
+    },
+}
