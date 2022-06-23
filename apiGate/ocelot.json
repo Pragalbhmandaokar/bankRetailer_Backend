@@ -1,7 +1,8 @@
 {
     "ReRoutes": [
+        //account
         {
-            //account
+
             "DownstreamHostAndPorts": [
                 {
                     "Host": "localhost",
@@ -10,8 +11,36 @@
             ],
             "DownstreamPathTemplate": "/api/account",
             "DownstreamScheme": "https",
-            "UpstreamHttpMethod": [ "Get" ],
-            "UpstreamPathTemplate": "/account"
+            "UpstreamHttpMethod": [ "Get", "Post" ],
+            "UpstreamPathTemplate": "/accounts"
+        },
+        //AddAccount
+        {
+
+            "DownstreamHostAndPorts": [
+                {
+                    "Host": "localhost",
+                    "Port": 44332
+                }
+            ],
+            "DownstreamPathTemplate": "/api/account",
+            "DownstreamScheme": "https",
+            "UpstreamHttpMethod": [ "Get", "Post" ],
+            "UpstreamPathTemplate": "/accounts"
+        },
+        //GetAccountStatement
+        {
+
+            "DownstreamHostAndPorts": [
+                {
+                    "Host": "localhost",
+                    "Port": 44332
+                }
+            ],
+            "DownstreamPathTemplate": "/api/account/getCustomerAccount/{CustomerId}",
+            "DownstreamScheme": "https",
+            "UpstreamHttpMethod": [ "Get", "Post" ],
+            "UpstreamPathTemplate": "/AccountStatement/{customerId}"
         },
         //authentication
         {
@@ -23,32 +52,70 @@
             ],
             "DownstreamPathTemplate": "/api/Authentication",
             "DownstreamScheme": "https",
-            "UpstreamHttpMethod": [ "Get" ],
-            "UpstreamPathTemplate": "/allUsers"
+            "UpstreamHttpMethod": [ "Get", "Post" ],
+            "UpstreamPathTemplate": "/users"
+        },
+        {
+            "DownstreamHostAndPorts": [
+                {
+                    "Host": "localhost",
+                    "Port": 44306
+                }
+            ],
+            "DownstreamPathTemplate": "/api/Authentication/login",
+            "DownstreamScheme": "https",
+            "UpstreamHttpMethod": [ "Post" ],
+            "UpstreamPathTemplate": "/login"
+        },
+        {
+            "DownstreamHostAndPorts": [
+                {
+                    "Host": "localhost",
+                    "Port": 44306
+                }
+            ],
+            "DownstreamPathTemplate": "/api/Authentication/register",
+            "DownstreamScheme": "https",
+            "UpstreamHttpMethod": [ "Get", "Post" ],
+            "UpstreamPathTemplate": "/register"
         },
         //customer
         {
             "DownstreamHostAndPorts": [
                 {
                     "Host": "localhost",
-                    "Port": 44306
+                    "Port": 44344
                 }
             ],
             "DownstreamPathTemplate": "/api/customer",
             "DownstreamScheme": "https",
             "UpstreamHttpMethod": [ "Get" ],
-            "UpstreamPathTemplate": "/Allcustomers"
+            "UpstreamPathTemplate": "/customers"
         },
+        //CustomerByID
         {
             "DownstreamHostAndPorts": [
                 {
                     "Host": "localhost",
-                    "Port": 44306
+                    "Port": 44344
+                }
+            ],
+            "DownstreamPathTemplate": "/api/customer/{id}",
+            "DownstreamScheme": "https",
+            "UpstreamHttpMethod": [ "Get" ],
+            "UpstreamPathTemplate": "/customers/{id}"
+        },
+        //addCustomer
+        {
+            "DownstreamHostAndPorts": [
+                {
+                    "Host": "localhost",
+                    "Port": 44344
                 }
             ],
             "DownstreamPathTemplate": "/api/customer",
             "DownstreamScheme": "https",
-            "UpstreamHttpMethod": [ "post" ],
+            "UpstreamHttpMethod": [ "Post" ],
             "UpstreamPathTemplate": "/addCustomer"
         },
         //transaction
@@ -61,8 +128,8 @@
             ],
             "DownstreamPathTemplate": "/api/transaction",
             "DownstreamScheme": "https",
-            "UpstreamHttpMethod": [ "Get" ],
-            "UpstreamPathTemplate": "/AllTransaction"
+            "UpstreamHttpMethod": [ "Get", "Post" ],
+            "UpstreamPathTemplate": "/transactions"
         }
         //44306
     ],
