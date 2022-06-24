@@ -21,19 +21,28 @@ namespace ruleservices.Controllers
         [HttpGet("{AccountId}")]
         public async Task<ActionResult<JsonResult>> Get(int AccountId)
         {
-            return Ok("Evaluate min balance");
+            var accountDetails = db.Accounts.FirstOrDefault(p => p.AccountId == AccountId);
+            if(accountDetails.totalAmount < 1000)
+            {
+                return Ok(new { message = "Evaluate minimum balance" });
+            }
+            else
+            {
+                return Ok(new { message = "Healthy Account balance" });
+            }
         }
 
         [HttpGet("/charge/{AccountId}")]
-        public async Task<ActionResult<int>> GetServiceCharge(string AccountType)
+        public async Task<ActionResult<int>> GetServiceCharge(int AccountId)
         {
-            if (AccountType == "Savings")
+            var accountDetails = db.Accounts.FirstOrDefault(p => p.AccountId == AccountId);
+            if (accountDetails.AccountType == "Savings" || accountDetails.AccountType == "savings")
             {
-                return 100;
+                return Ok(new { message = "Atm charge", data = 100});
             }
-            else if (AccountType == "Current")
+            else if (accountDetails.AccountType == "Current" || accountDetails.AccountType == "Current")
             {
-                return 200;
+                return Ok(new { message = "Atm charge", data = 100 });
             }
             else
             {

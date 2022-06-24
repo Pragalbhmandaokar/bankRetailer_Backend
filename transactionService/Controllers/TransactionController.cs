@@ -91,7 +91,7 @@ namespace transactionService.Controllers
             }
         }
 
-        [HttpPost("deposit", Name = "Post")]
+        [HttpPost("deposit")]
         public async Task<ActionResult<database.Entity.Transaction>> depositByCustomerId(database.Entity.Transaction request)
         {
             try

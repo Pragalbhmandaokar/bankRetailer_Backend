@@ -1,4 +1,5 @@
 ﻿using accountService.database;
+using accountService.database.Entity;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -40,12 +41,12 @@ namespace accountService.Controllers
             }
         }
 
-        [HttpGet("getCustomerAccountDetails/{CustomerId}",Name ="Get")]
-        public async Task<ActionResult<Account>> getCustomerAccount(int CustomerId,Account request)
+        [HttpGet("getCustomerAccountDetails/{CustomerId}")]
+        public async Task<ActionResult<Account>> GetCustomerAccountDetails(int CustomerId)
         {
             try
             {
-                var accountDetails = db.Accounts.FirstOrDefault(p => p.AccountId == CustomerId); 
+                var accountDetails = db.Accounts.FirstOrDefault(p => p.customerId == CustomerId); 
                 if(accountDetails == null)
                 {
                     return Ok(new {message= "customer not found" });
@@ -61,8 +62,8 @@ namespace accountService.Controllers
             }
         }
 
-        [HttpGet("getAccountStatement/{accountId}", Name = "Get")]
-        public async Task<ActionResult<Account>> getAccountStatement(int accountId)
+        [HttpGet("getAccountStatement/{accountId}")]
+        public async Task<ActionResult<JsonResult>> GetAccountStatement(int accountId)
         {
  
             try
@@ -80,17 +81,15 @@ namespace accountService.Controllers
             }
         }
 
-        [HttpPost("withdraw/{CustomerId}", Name = "Post")]
-        public async Task<ActionResult<Account>> withdrawByCustomerId(int CustomerId, int withdrawalAmount)
+        [HttpPost("withdraw/{CustomerId}")]
+        public async Task<IActionResult> withdraw(int CustomerId, Amount request)
         {
             try
             {
                 var customerDetails = db.Accounts.FirstOrDefault(p => p.AccountId == CustomerId);
-                customerDetails.totalAmount = customerDetails.totalAmount - withdrawalAmount;
+                customerDetails.totalAmount = customerDetails.totalAmount - request.AmountDC;
                 db.SaveChanges();
-                return Ok(new {
-                    message="Amount withdraw",
-                    value=customerDetails.totalAmount
+                return Ok(new { message = "Amount withdraw", value = customerDetails
                 });
             }
             catch (Exception e)
@@ -99,19 +98,20 @@ namespace accountService.Controllers
             }
         }
 
-        [HttpPost("deposit/{CustomerId}", Name = "Post")]
-        public async Task<ActionResult<Account>> depositByCustomerId(int CustomerId, int withdrawalAmount)
+        [HttpPost("deposit/{CustomerId}")]
+        public async Task<IActionResult> deposit(int CustomerId, Amount request)
         {
             //customerAccount res = null;
+           
             try
             {
                 var customerDetails = db.Accounts.FirstOrDefault(p => p.AccountId == CustomerId);
-                customerDetails.totalAmount = customerDetails.totalAmount + withdrawalAmount;
+                customerDetails.totalAmount = customerDetails.totalAmount + request.AmountDC;
                 db.SaveChanges();
                 return Ok(new
                 {
                     message = "Amount Deposit",
-                    value = customerDetails.totalAmount
+                    value = customerDetails
                 });
             }
             catch (Exception e)
