@@ -42,6 +42,47 @@
             "UpstreamHttpMethod": [ "Get", "Post" ],
             "UpstreamPathTemplate": "/AccountStatement/{customerId}"
         },
+        //account statement 
+        {
+
+            "DownstreamHostAndPorts": [
+                {
+                    "Host": "localhost",
+                    "Port": 44332
+                }
+            ],
+            "DownstreamPathTemplate": "/api/account/getAccountStatement/{accountId}",
+            "DownstreamScheme": "https",
+            "UpstreamHttpMethod": [ "Get", "Post" ],
+            "UpstreamPathTemplate": "/AccountStatement/{customerId}"
+        },
+        //withdraw
+        {
+
+            "DownstreamHostAndPorts": [
+                {
+                    "Host": "localhost",
+                    "Port": 44332
+                }
+            ],
+            "DownstreamPathTemplate": "/api/account/withdraw/{CustomerId}",
+            "DownstreamScheme": "https",
+            "UpstreamHttpMethod": [ "Get", "Post" ],
+            "UpstreamPathTemplate": "/withdrawAccount/{customerId}"
+        },
+        {
+
+            "DownstreamHostAndPorts": [
+                {
+                    "Host": "localhost",
+                    "Port": 44332
+                }
+            ],
+            "DownstreamPathTemplate": "/api/account/deposit/{CustomerId}",
+            "DownstreamScheme": "https",
+            "UpstreamHttpMethod": [ "Get", "Post" ],
+            "UpstreamPathTemplate": "/depositAccount/{customerId}"
+        },
         //authentication
         {
             "DownstreamHostAndPorts": [
@@ -129,9 +170,57 @@
             "DownstreamPathTemplate": "/api/transaction",
             "DownstreamScheme": "https",
             "UpstreamHttpMethod": [ "Get", "Post" ],
-            "UpstreamPathTemplate": "/transactions"
+            "UpstreamPathTemplate": "/getAllTransaction"
+        },
+        {
+            "DownstreamHostAndPorts": [
+                {
+                    "Host": "localhost",
+                    "Port": 44396
+                }
+            ],
+            "DownstreamPathTemplate": "/api/transaction/addTransaction",
+            "DownstreamScheme": "https",
+            "UpstreamHttpMethod": [ "Get", "Post" ],
+            "UpstreamPathTemplate": "/transfer"
+        },
+        {
+            "DownstreamHostAndPorts": [
+                {
+                    "Host": "localhost",
+                    "Port": 44396
+                }
+            ],
+            "DownstreamPathTemplate": "/api/transaction/deposit",
+            "DownstreamScheme": "https",
+            "UpstreamHttpMethod": [ "Get", "Post" ],
+            "UpstreamPathTemplate": "/depositToOther"
+        },
+        //44312 rule
+        {
+            "DownstreamHostAndPorts": [
+                {
+                    "Host": "localhost",
+                    "Port": 44312
+                }
+            ],
+            "DownstreamPathTemplate": "/api/rules",
+            "DownstreamScheme": "https",
+            "UpstreamHttpMethod": [ "Get", "Post" ],
+            "UpstreamPathTemplate": "/minBalance"
+        },
+        {
+            "DownstreamHostAndPorts": [
+                {
+                    "Host": "localhost",
+                    "Port": 44312
+                }
+            ],
+            "DownstreamPathTemplate": "/api/rules/charge/{AccountId}",
+            "DownstreamScheme": "https",
+            "UpstreamHttpMethod": [ "Get", "Post" ],
+            "UpstreamPathTemplate": "/charges/{AccountId}"
         }
-        //44306
     ],
     "GlobalConfiguration": {
         "RequestIdKey": "OcRequestId",

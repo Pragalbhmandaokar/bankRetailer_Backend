@@ -26,12 +26,7 @@ namespace customerService.Controllers
             return db.customers.ToList();
         }
 
-        [HttpGet("{id}",Name = "Get")]
-        public Customer Get(int id)
-        {
-            Customer customerDetails = db.customers.FirstOrDefault(p => p.CustomerId == id);
-            return customerDetails;
-        }
+       
 
         //public int CustomerId { get; set; }
         //public string Name { get; set; }
@@ -67,6 +62,26 @@ namespace customerService.Controllers
             }
         }
 
-      
+        [HttpGet("{customerId}")]
+        public async Task<ActionResult<Customer>> getCustomerDetailsById(int customerId)
+        {
+            try
+            {
+                var get_user = db.customers.FirstOrDefault(p => p.CustomerId == customerId);
+                if (get_user != null)
+                {
+                    return Ok(new {message=  "Customer Found",details = get_user });
+                }
+                else
+                {
+                    return BadRequest("Customer Not found");
+                }
+            }
+            catch (Exception e)
+            {
+                return BadRequest("Registration Error" + e);
+            }
+        }
+
     }
 }

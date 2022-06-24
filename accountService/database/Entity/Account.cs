@@ -12,7 +12,7 @@ namespace accountService.database
         public string chqNumber { get; set; }
         public DateTime OpenningDate { get; set; }
 
-        public int totalAmount { get; set; }
+        public int totalAmount { get; set; }  
         public int customerId { get; set; }
         public int AccountStatus { get; set; }
     }

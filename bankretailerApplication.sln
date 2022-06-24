@@ -3,15 +3,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.32602.291
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "accountService", "accountService\accountService.csproj", "{99CF067A-C984-4E90-B5DB-9663891BD808}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "accountService", "accountService\accountService.csproj", "{99CF067A-C984-4E90-B5DB-9663891BD808}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "apiGate", "apiGate\apiGate.csproj", "{0D298CB6-50D6-414C-8783-F1614CFD3803}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "apiGate", "apiGate\apiGate.csproj", "{0D298CB6-50D6-414C-8783-F1614CFD3803}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "transactionService", "transactionService\transactionService.csproj", "{052A14F6-FD42-4741-A6C4-D673A66B7EC1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "transactionService", "transactionService\transactionService.csproj", "{052A14F6-FD42-4741-A6C4-D673A66B7EC1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "customerService", "customerService\customerService.csproj", "{FF953DBF-0EAE-45E8-9683-EFDEEAF407AB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "customerService", "customerService\customerService.csproj", "{FF953DBF-0EAE-45E8-9683-EFDEEAF407AB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "authenticateService", "authenticateService\authenticateService.csproj", "{C144E962-F790-4039-930C-71139D3BAE9B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "authenticateService", "authenticateService\authenticateService.csproj", "{C144E962-F790-4039-930C-71139D3BAE9B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ruleservices", "ruleservices\ruleservices.csproj", "{91DC05CC-5D68-44B3-8D7D-CAC6D399EC0B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{C144E962-F790-4039-930C-71139D3BAE9B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C144E962-F790-4039-930C-71139D3BAE9B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C144E962-F790-4039-930C-71139D3BAE9B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{91DC05CC-5D68-44B3-8D7D-CAC6D399EC0B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{91DC05CC-5D68-44B3-8D7D-CAC6D399EC0B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{91DC05CC-5D68-44B3-8D7D-CAC6D399EC0B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{91DC05CC-5D68-44B3-8D7D-CAC6D399EC0B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using accountService.database.Entity;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,7 +10,7 @@ namespace accountService.database
     public class databaseController : DbContext
     {
         public DbSet<Account> Accounts { get; set; }
-        
+        public DbSet<Transaction> transactions { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder optBuilder)
         {
             optBuilder.UseSqlServer(@"data source=(localDB)\MSSQLLocalDB;initial catalog=BankRetailDB;persist security info=True;");
